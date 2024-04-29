@@ -1,25 +1,37 @@
 <script>
-    import Footer from "$lib/components/UI/Footer.svelte";
-    import Faqs from "$lib/components/UI/Faqs.svelte";
-    import ProjectSlider from "$lib/components/UI/ProjectSlider.svelte";
+    /** @type {import('./$types').PageData} */  
+    export let data;
 </script>
+
 <svelte:head>
-    <title>Open code | Home</title>
+    <title>Open code | Repositories</title>
 </svelte:head>
 
-<div>
-	<main class="text-xl bg-[url('/api.jpg')] bg-cover bg-no-repeat bg-center flex flex-col items-center justify-center max-sm:h-[70vh] h-[80vh]">
-	   <div class="flex flex-col bg-[rgba(0,0,0,0.6)] w-full h-[80vh] max-sm:h-[70vh] p-5 items-center justify-center">
-			<div class="text-center text-white text-xl font-medium sm:text-3xl uppercase mb-3">
-				<p>OpenCode provides Access to different <span class="text-slate-500">Computer</span></p>
-				<p><span class="text-slate-500">science</span> projects.</p>
-			</div> 
-			<p class="text-center text-white text-lg font-bold max-sm:w-[70vw]">Built for students, to explore and download free and paid projects with ease.</p>
-			<a href="/explore" class="m-5 p-2 text-base hover:text-slate-500 hover:bg-white hover:border-2 bg-slate-500 text-white rounded-md capitalize">View all projects</a>        
-	   </div>
-	</main>
-	
-	<Faqs/>
-	<ProjectSlider/>
-	<Footer/>
-</div>
+<main class="m-3 flex justify-center">
+    <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-2">
+        {#each data.parseRes as item }
+            <div class="bg-gray-200 rounded-[15px] shadow-lg" id={item.id}>
+            <!-- https://opengraph.githubassets.com/1f3977f37995637ee111830aa8ae02d8c0ac6838db385a43e9009b4a84708f47/imrany/opencode -->
+                <img src={`https://opengraph.githubassets.com/1f3977f37995637ee111830aa8ae02d8c0ac6838db385a43e9009b4a84708f47/${item.full_name}`} class="w-full rounded-tr-[15px] rounded-tl-[15px]" alt={item.alt}/>
+                <div class="px-3 py-2">
+                    <p class="text-base font-semibold">{item.full_name}</p>
+                    <p class="text-sm">{item?.description==null?"":item.description}</p>
+                    <div class="flex justify-between items-center">
+                        <!--<a href={`${item.owner.html_url}`} target="_blank" rel="noreferrer">
+                            <img class="w-[50px] h-[50px] rounded-[50px]" src={item.owner.avatar_url} alt={item.owner.login}/>
+                        </a> -->
+                        <!-- https://github.com/imrany/django-rest/archive/refs/heads/main.zip -->
+                        <div class="flex justify-center items-center gap-3 ml-auto">
+                            <a href={`${item.clone_url}`} target="_blank" rel="noreferrer">
+                               <span class="material-symbols-outlined text-xl">open_in_new</span>
+                            </a>
+                            <a href={`https://github.com/${item.full_name}/archive/refs/heads/${item.default_branch}.zip`} download={item.name}>
+                                <span class="material-symbols-outlined text-2xl">download</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/each}
+    </div>
+</main>
