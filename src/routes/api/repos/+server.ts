@@ -1,4 +1,4 @@
-import { octokit } from "$lib/octokit/octokit";
+import { octokit } from "$lib/octokit";
 import {json} from "@sveltejs/kit";
 
 //get user repos

@@ -1,6 +1,6 @@
 <script>
     import { assets } from "$app/paths";
-    import "./app.css"
+    import "./styles.css"
 </script>
 
 <div>
