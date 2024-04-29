@@ -4,19 +4,16 @@
 </script>
 
 <div>
-	<nav class="p-5 text-xl shadow flex justify-between">
-		<div class="flex">
-			<img src="/open-code.png" class="w-10 h-7 rounded-sm shadow-sm mr-2" alt="logo"/>
-			<a class="mx-2" style="font-family: 'Tilt Neon';" href="/">OpenCode</a>
-		</div>
-		<div class="sm:flex none">
-			<a class="mx-2" href="/explore">Explore</a>
-			<a class="mx-2" href="/sign_in">Sign in</a>
-			<a class="ml-4 px-2 py-1 text-base text-white rounded-md border-slate-600 bg-slate-500 " href="/get_started">Get Started</a>
+	<nav class="px-5 py-2 text-base shadow flex items-center justify-between">
+		<a style="font-family: 'Tilt Neon';" href="/">Codename space</a>
+		<div class="sm:flex sm:gap-2 sm:items-center none">
+			<a href="/explore">Explore</a>
+			<a href="/sign_in">Sign in</a>
+			<a class="px-2 py-1 text-white rounded-md border-slate-600 bg-slate-500 " href="/get_started">Get Started</a>
 		</div>
 	</nav>
 
 	<main>
-		<slot class="mx-1"></slot>
+		<slot></slot>
 	</main>
 </div>
