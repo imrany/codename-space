@@ -1,6 +1,7 @@
-<script>
-    /** @type {import('./$types').PageData} */  
-    export let data;
+<script lang='ts'>
+    import type { PageData } from './$types';
+    
+    export let data:PageData;
 </script>
 
 <svelte:head>
@@ -8,7 +9,8 @@
 </svelte:head>
 
 <main class="m-3 flex justify-center">
-    <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-2">
+    {#if !data.message}
+    <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
         {#each data.parseRes as item }
             <div class="bg-gray-200 rounded-[15px] shadow-lg" id={item.id}>
             <!-- https://opengraph.githubassets.com/1f3977f37995637ee111830aa8ae02d8c0ac6838db385a43e9009b4a84708f47/imrany/opencode -->
@@ -37,4 +39,10 @@
             </div>
         {/each}
     </div>
-</main>
+    {:else}
+        <div class="flex flex-col gap-1 items-center justify-center h-[80vh]">
+            <p class="text-lg">Error: {data.message}</p>
+            <button class="py-2 px-4 text-sm border rounded-lg hover:text-white hover:bg-gray-700" on:click={()=>window.location.reload()}>Reload page</button>
+        </div>
+    {/if}
+   </main>

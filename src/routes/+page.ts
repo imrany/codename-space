@@ -9,10 +9,10 @@ export async function load({fetch}) {
     const url=`/api/repos`;
     const response=await fetch(url);
     const parseRes=await response.json();
-    if(parseRes.error){
-      console.log(parseRes.error)  
+    if(response.status===500){
+      return parseRes  
     }else{
-      return { parseRes }
+      return { parseRes } 
     }
   
    } catch (error) {

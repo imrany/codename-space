@@ -9,8 +9,8 @@ export async function GET(){
           });
       
         return json(result.data)
-      
-      } catch (error) {
+
+      } catch (error:any) {
         // @ts-ignore
         return json({error:`Error! Status: ${error.status}. Message: ${error.response.data.message}`})
     }
