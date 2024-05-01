@@ -30,7 +30,7 @@
                             <a href={`https://github.com/${item.full_name}/archive/refs/heads/${item.default_branch}.zip`} download={item.name}>
                                 <span class="material-symbols-outlined text-2xl">download</span>
                             </a>
-                            <a href={`/pdf/till_sticker.pdf`} target="_blank">
+                            <a href={`/images/till_sticker.png`} target="_blank">
                                 <span class="material-symbols-outlined text-2xl">coffee</span>
                             </a>
                         </div>
