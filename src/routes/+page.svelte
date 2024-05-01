@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-    <title>Open code | Repositories</title>
+    <title>Codename space | Repositories</title>
 </svelte:head>
 
 <main class="m-3 flex justify-center">

@@ -14,7 +14,7 @@
 </script>
 
 <div>
-	<nav class="px-5 py-2 text-base shadow flex items-center">
+	<nav class="px-5 py-2 text-base shadow flex items-center max-sm:text-sm">
         <a style="font-family: 'Tilt Neon';" href="/">Codename space</a>
         <div class="flex items-center justify-center gap-2 ml-auto">
 		    <div class="sm:flex sm:gap-2 sm:items-center none">

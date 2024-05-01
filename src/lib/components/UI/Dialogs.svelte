@@ -9,18 +9,15 @@
 </script>
 <main>
      <div id="open_support_dialog" class="fixed top-0 bottom-0 left-0 right-0 z-20 bg-[#151515]/70 none">
-            <div class="flex flex-col justify-center items-center h-[100vh]">
-                <div id="dialog" class="items-center max-md:w-[90vw] flex flex-col bg-white justify-center p-[24px]">
-                    <div class="flex ml-auto mb-[8px] justify-end h-[22px] pb-[4px]">
-                        <button on:click={closeDialog} class="material-symbols-outlined w-[20px] h-[20px] cursor-pointer">close</button>
-                    </div>
-                    <div>
-                        <p class="md:text-lg">Buy me a coffee... Any contribution is greatly appreciated.</p>
-                        <a href="/pdf/till_sticker.pdf" class="mb-2 text-blue-500 flex items-center" target="_blank">
-                            <span class="material-symbols-outlined text-base">open_in_new</span>
-                            <span class="underline">Open in full</span>
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <!-- svelte-ignore a11y-no-static-element-interactions -->
+            <div on:click={closeDialog} class="flex flex-col justify-center items-center h-[100vh]">
+                <div id="dialog" class="items-center max-md:w-[95vw] text-gray-200 flex flex-col justify-center p-[24px]">
+                    <div class="md:text-lg max-sm:text-sm">
+                        <p class="mb-2">Buy me a coffee... Any contribution is greatly appreciated.</p>
+                        <a href="/images/till_sticker.png" target="_blank">
+                            <img src="/images/till_sticker.png" alt="till sticker" class="max-sm:w-[80vw] max-sm:h-[300px] sm:w-[600px] sm:h-[500px] md:w-[750px] md:h-[500px]"/>
                         </a>
-                        <iframe class="max-sm:w-[300px] max-sm:h-[300px] sm:w-[400px] sm:h-[400px]" src="{`/pdf/till_sticker.pdf`}" title="Support Till sticker"></iframe>
                     </div>
                 </div>
             </div>
